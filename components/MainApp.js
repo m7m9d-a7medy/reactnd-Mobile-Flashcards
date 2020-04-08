@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import DecksTab from './tabs/Decks/DecksTab'
 import NewDeckTab from './tabs/NewDeck/NewDeckTab'
-// Test
+import DeckList from './tabs/Decks/DeckList/DeckList'
 import { saveDecks } from '../store/actions'
 import { saveMockData } from '../utils/asyncStorage'
 
@@ -20,7 +20,7 @@ export class MainApp extends Component {
   render() {
     return (
       <Tabs.Navigator>
-        <Tabs.Screen name='Decks' component={DecksTab} />
+        <Tabs.Screen name='Decks' component={DeckList} />
         <Tabs.Screen name='New Deck' component={NewDeckTab} />
       </Tabs.Navigator>
     )

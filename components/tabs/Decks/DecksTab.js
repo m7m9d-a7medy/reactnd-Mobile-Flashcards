@@ -1,16 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { createStackNavigator } from '@react-navigation/stack'
+import DeckList from './DeckList/DeckList'
+
+const Stack = createStackNavigator()
 
 const Decks = () => {
     return (
-        <SafeAreaView>
-            <StatusBar barStyle="light-content" backgroundColor="red" />
-            <Text>Decks</Text>
-        </SafeAreaView>
+        <Stack.Navigator initialRouteName='DeckList'>
+            <Stack.Screen name='DeckList' component={DeckList} />
+        </Stack.Navigator>
     )
 }
 
 export default Decks
-
-const styles = StyleSheet.create({})

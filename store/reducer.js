@@ -1,5 +1,5 @@
 import { SAVE_DECKS, GET_DECKS, GET_DECK, SAVE_DECK_TITLE, ADD_CARD_TO_DECK } from './actions'
-import { newDeck, newEntry } from '../utils/_DATA'
+import { newDeck, newEntry } from '../utils/helpers'
 
 const saveDecks = (state, action) => action.decks
 

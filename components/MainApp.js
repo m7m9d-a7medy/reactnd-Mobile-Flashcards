@@ -1,19 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import DecksTab from './tabs/Decks/DecksTab'
+import NewDeckTab from './tabs/NewDeck/NewDeckTab'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+const Tabs = createMaterialTopTabNavigator()
+
+export class MainApp extends Component {
+  render() {
+    return (
+      <Tabs.Navigator>
+        <Tabs.Screen name='Decks' component={DecksTab}/>
+        <Tabs.Screen name='New Deck' component={NewDeckTab}/>
+      </Tabs.Navigator>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default MainApp

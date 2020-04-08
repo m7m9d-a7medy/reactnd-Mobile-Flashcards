@@ -22,8 +22,3 @@ export default {
         ]
     }
 }
-
-export const newDeck = {
-    title: '',
-    questions: []
-}

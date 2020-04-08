@@ -1,11 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Decks = () => {
     return (
-        <View>
+        <SafeAreaView>
+            <StatusBar barStyle="light-content" backgroundColor="red" />
             <Text>Decks</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { saveDecks } from '../store/actions'
 import { saveMockData } from '../utils/asyncStorage'
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from './home/Home'
-import DeckView from './deckView/DeckView'
+import Home from './Home/Home'
+import DeckView from './DeckView/DeckView'
+import AddCard from './AddCard/AddCard'
 
 const Stack = createStackNavigator()
 
@@ -21,6 +22,7 @@ export class MainApp extends Component {
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home} options={{header: () => null}}/>
         <Stack.Screen name='DeckView' component={DeckView} />
+        <Stack.Screen name='AddCard' component={AddCard} />
       </Stack.Navigator>
     )
   }

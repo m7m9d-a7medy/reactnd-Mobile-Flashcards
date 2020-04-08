@@ -6,8 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 const DeckItem = ({ title, cardCount }) => {
     const navigation = useNavigation()
     const clickHandler = () => {
-        console.log('Going to ', title)
-        navigation.navigate('DeckView', { title })
+        navigation.navigate('DeckView', { title, cardCount })
     }
 
     return (

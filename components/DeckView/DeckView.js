@@ -1,17 +1,41 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import TextButton from '../UI/TextButton'
 
 const DeckView = ({ route, navigation }) => {
-    console.log('Deck View!')
-    console.log(route.params)
+    const { title, cardCount } = route.params
 
     return (
-        <View>
-            <Text>DeckView</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.cardCount}>{cardCount} cards</Text>
+            <TextButton onPress={() => navigation.navigate('AddCard', { deckTitle: title })}>
+                Add card
+            </TextButton>
+            <TextButton>
+                Start Quiz
+            </TextButton>
+        </SafeAreaView>
     )
 }
 
-export default DeckView
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 40,
+        fontWeight: '200'
+    },
+    cardCount: {
+        color: '#999',
+        marginTop: 5,
+        fontSize: 25,
+        marginBottom: 80
+    }
+})
 
-const styles = StyleSheet.create({})
+export default DeckView

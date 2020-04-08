@@ -20,7 +20,7 @@ export class MainApp extends Component {
   render() {
     return (
       <Tabs.Navigator>
-        <Tabs.Screen name='Decks' component={DeckList} />
+        <Tabs.Screen name='Decks' component={DecksTab} />
         <Tabs.Screen name='New Deck' component={NewDeckTab} />
       </Tabs.Navigator>
     )

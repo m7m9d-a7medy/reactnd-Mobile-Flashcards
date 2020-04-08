@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import DecksTab from './tabs/Decks/DecksTab'
-import NewDeckTab from './tabs/NewDeck/NewDeckTab'
-import DeckList from './tabs/Decks/DeckList/DeckList'
 import { saveDecks } from '../store/actions'
 import { saveMockData } from '../utils/asyncStorage'
+import { createStackNavigator } from '@react-navigation/stack'
+import Home from './home/Home'
+import DeckView from './deckView/DeckView'
 
-const Tabs = createMaterialTopTabNavigator()
+const Stack = createStackNavigator()
 
 export class MainApp extends Component {
   componentDidMount() {
@@ -19,10 +18,10 @@ export class MainApp extends Component {
 
   render() {
     return (
-      <Tabs.Navigator>
-        <Tabs.Screen name='Decks' component={DecksTab} />
-        <Tabs.Screen name='New Deck' component={NewDeckTab} />
-      </Tabs.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={Home} options={{header: () => null}}/>
+        <Stack.Screen name='DeckView' component={DeckView} />
+      </Stack.Navigator>
     )
   }
 }

@@ -3,8 +3,8 @@ import _DATA, { newDeck } from './_DATA'
 
 const FLASHCARDS_KEY = 'FLASHCARDS_KEY'
 
-export const saveMockData = () => {
-    return AsyncStorage.setItem(FLASHCARDS_KEY, JSON.stringify(_DATA))
+export const saveMockData = (decks = _DATA) => {
+    return AsyncStorage.setItem(FLASHCARDS_KEY, JSON.stringify(decks))
 }
 
 export const getDecks = () => {

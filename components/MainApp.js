@@ -8,6 +8,7 @@ import DeckView from './DeckView/DeckView'
 import AddCard from './AddCard/AddCard'
 import Quiz from './Quiz/Quiz'
 import { setLocalNotification } from '../utils/notifications'
+import QuizSummary from './Quiz/QuizSummary'
 
 const Stack = createStackNavigator()
 
@@ -26,6 +27,7 @@ export class MainApp extends Component {
         <Stack.Screen name='DeckView' component={DeckView} />
         <Stack.Screen name='AddCard' component={AddCard} />
         <Stack.Screen name='QuizView' component={Quiz} />
+        <Stack.Screen name='QuizSummary' component={QuizSummary} />
       </Stack.Navigator>
     )
   }

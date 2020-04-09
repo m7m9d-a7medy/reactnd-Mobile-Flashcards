@@ -7,7 +7,7 @@ import { addCardToDeckAction } from '../../store/actions'
 import StyledTextInput from '../UI/StyledTextInput'
 
 const AddCard = ({ route, navigation, dispatch }) => {
-    const { deckTitle } = route.params
+    const { title } = route.params
     const [questionText, setQuestionText] = useState('')
     const [answerText, setAnswerText] = useState('')
     const [correct, setCorrect] = useState(true)
@@ -15,7 +15,7 @@ const AddCard = ({ route, navigation, dispatch }) => {
 
     const submitHandler = () => {
         dispatch(addCardToDeckAction(
-            deckTitle,
+            title,
             {
                 question: questionText,
                 answer: answerText,

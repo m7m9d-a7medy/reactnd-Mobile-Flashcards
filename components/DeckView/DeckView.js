@@ -10,10 +10,10 @@ const DeckView = ({ route, navigation }) => {
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.cardCount}>{cardCount} cards</Text>
-            <TextButton onPress={() => navigation.navigate('AddCard', { deckTitle: title })}>
+            <TextButton onPress={() => navigation.navigate('AddCard', { title })}>
                 Add card
             </TextButton>
-            <TextButton onPress={() => navigation.navigate('QuizView', { deckTitle: title })}>
+            <TextButton onPress={() => navigation.navigate('QuizView', { title })}>
                 Start Quiz
             </TextButton>
         </SafeAreaView>

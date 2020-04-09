@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { StyleSheet, Animated, View, Text } from 'react-native'
-import TextButton from '../UI/TextButton'
 import { Easing } from 'react-native-reanimated'
 
 const QuestionCard = ({ question, answer }) => {
@@ -11,7 +10,7 @@ const QuestionCard = ({ question, answer }) => {
 
         Animated.timing(rotateAnim, {
             toValue: isFront ? 1 : 0,
-            duration: 200,
+            duration: 300,
             easing: Easing.linear,
             useNativeDriver: true
         })
@@ -30,14 +29,14 @@ const QuestionCard = ({ question, answer }) => {
     return (
         <View style={styles.card}>
             <Animated.View style={[styles.cardSide, styles.frontSide, { transform: [{ rotateY: fsRotVal }] }]}>
-                <Text>{question}</Text>
-                <Text onPress={pressed}>
+                <Text style={styles.primary}>{question}</Text>
+                <Text style={styles.secondary} onPress={pressed}>
                     Answer
                 </Text>
             </Animated.View>
             <Animated.View style={[styles.cardSide, styles.backSide, { transform: [{ rotateY: bsRotVal }] }]}>
-                <Text>{answer}</Text>
-                <Text onPress={pressed}>
+                <Text style={styles.primary}>{answer}</Text>
+                <Text style={styles.secondary} onPress={pressed}>
                     Question
                 </Text>
             </Animated.View>
@@ -64,16 +63,28 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 2,
         borderColor: '#000',
-        backfaceVisibility: 'hidden'
+        borderRadius: 5,
+        backfaceVisibility: 'hidden',
+        padding: 20
     },
     frontSide: {
-        backgroundColor: 'red'
+        backgroundColor: 'white'
     },
     backSide: {
-        backgroundColor: 'blue',
+        backgroundColor: 'white',
         transform: [
             { rotateY: '180deg' }
         ]
+    },
+    primary: {
+        fontSize: 30,
+        textAlign: 'center',
+        marginBottom: 35
+    },
+    secondary: {
+        fontSize: 20,
+        fontWeight: '200',
+        color: '#c00'
     }
 })
 

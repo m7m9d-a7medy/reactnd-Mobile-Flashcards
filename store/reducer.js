@@ -14,9 +14,7 @@ const saveDeckTitle = (state, action) => {
 }
 
 const addCardToDeck = (state, action) => {
-    const { card, deckTitle } = action
-    const { question, answer } = card
-    const entry = newEntry(question, answer)
+    const { entry, deckTitle } = action
     
     return {
         ...state,

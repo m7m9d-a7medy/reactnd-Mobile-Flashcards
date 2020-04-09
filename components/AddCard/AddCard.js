@@ -62,11 +62,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     inputContainer: {
-        flex: 2,
         paddingHorizontal: 15
     },
     submitContainer: {
-        flex: 3,
         padding: 15
     }
 })

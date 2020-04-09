@@ -1,4 +1,4 @@
-# MyReads Project
+# Mobile Flashcards Project
 This is Mobile Flashcards Project for Udacity React Nanodegree program.  
 
 To get started:

@@ -1,15 +1,23 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import TextButton from '../UI/TextButton'
+import { useNavigation } from '@react-navigation/native'
 
 const QuizUnavilable = () => {
+    const navigation = useNavigation()
+
+    const navigationHandler = () => navigation.goBack()
+
     return (
-        <SafeAreaView style={[styles.container, { width: '100%' }]}>
-            <Text style={styles.mainText, { marginTop: 0, marginHorizontal: 10, fontSize: 30 }}>Unable to start a quiz on this deck, please add cards to the deck</Text>
+        <SafeAreaView style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+            <Text style={{ margin: 20, fontSize: 25, textAlign: 'center' }}>
+            Unable to start a quiz on this deck, please add cards to the deck</Text>
+            <TextButton onPress={navigationHandler}>
+                Go back
+            </TextButton>
         </SafeAreaView>
     )
 }
 
 export default QuizUnavilable
-
-const styles = StyleSheet.create({})

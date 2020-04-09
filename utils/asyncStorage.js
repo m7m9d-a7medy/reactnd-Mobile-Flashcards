@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 import _DATA from './_DATA'
-import { newEntry } from './helpers'
+import { newEntry, newDeck } from './helpers'
 
 const FLASHCARDS_KEY = 'FLASHCARDS_KEY'
 
@@ -19,13 +19,15 @@ export const getDeck = deckTitle => {
 }
 
 export const saveDeckTitle = title => {
-    getDecks()
+    return getDecks()
         .then(result => {
-            result[title] = newDeck
-            result[title].title = title
+            const entry = newDeck(title)
+            result[title] = entry
 
             AsyncStorage.setItem(FLASHCARDS_KEY, JSON.stringify(result))
                 .catch(err => console.warn(err))
+
+            return entry 
         })
         .catch(err => console.warn(err))
 }

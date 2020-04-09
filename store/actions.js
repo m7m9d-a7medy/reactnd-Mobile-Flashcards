@@ -9,9 +9,9 @@ export const saveDecks = (decks = _DATA) => ({
     decks,
 })
 
-export const saveDeckTitleAction = deckTitle => ({
+export const saveDeckTitleAction = deck => ({
     type: SAVE_DECK_TITLE,
-    deckTitle,
+    deck,
 })
 
 export const addCardToDeckAction = (deckTitle, entry) => ({

@@ -4,12 +4,11 @@ import { newDeck, newEntry } from '../utils/helpers'
 const saveDecks = (state, action) => action.decks
 
 const saveDeckTitle = (state, action) => {
-    const { deckTitle } = action
-    const deck = newDeck(deckTitle)
+    const { deck } = action
 
     return {
         ...state,
-        [deckTitle]: deck
+        [deck.title]: deck
     }
 }
 

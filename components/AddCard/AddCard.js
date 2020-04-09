@@ -35,16 +35,19 @@ const AddCard = ({ route, navigation, dispatch }) => {
         }
     }
 
+    const variant = correct ? 'green' : 'red'
+
     return (
-        <SafeAreaView style={{flex: 1}}>
-            <View style={{ flex: 2 }}>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.inputContainer}>
                 <StyledTextInput placeholder='Question' value={questionText} onChangeText={e => changeTextHandler('question', e)} />
                 <StyledTextInput placeholder='Answer' value={answerText} onChangeText={e => changeTextHandler('answer', e)} />
-            </View>
-            <View style={{ flex: 1 }}>
-                <TextButton onPress={() => setCorrect(correct => !correct)}>
+
+                <TextButton variant={variant} onPress={() => setCorrect(correct => !correct)}>
                     {correct ? 'Correct' : 'Incorrect'}
                 </TextButton>
+            </View>
+            <View style={styles.submitContainer}>
                 <TextButton onPress={submitHandler} disabled={!valid}>
                     Submit
                 </TextButton>
@@ -53,6 +56,19 @@ const AddCard = ({ route, navigation, dispatch }) => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    inputContainer: {
+        flex: 2,
+        paddingHorizontal: 15
+    },
+    submitContainer: {
+        flex: 3,
+        padding: 15
+    }
+})
 
 export default connect()(AddCard)

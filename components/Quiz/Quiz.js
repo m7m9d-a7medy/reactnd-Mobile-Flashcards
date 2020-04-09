@@ -42,16 +42,30 @@ const Quiz = ({ questions }) => {
             <Text>{index + 1}/{questions.length}</Text>
             <QuestionCard question={questions[index].question} answer={questions[index].answer} />
             <View style={{ flex: 1, justifyContent: "center", alignItems: 'center', width: '100%' }}>
-                <TextButton onPress={() => answerHandler(true)}>
+                <TextButton variant='green' onPress={() => answerHandler(true)}>
                     Correct
                 </TextButton>
-                <TextButton onPress={() => answerHandler(false)}>
+                <TextButton variant='red' onPress={() => answerHandler(false)}>
                     Incorrect
                 </TextButton>
             </View>
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    greenBtn: {
+        backgroundColor: '#2ecc71',
+        borderColor: '#27ae60'
+    },
+    redBtn: {
+        backgroundColor: '#e74c3c',
+        borderColor: '#c0392b'
+    },
+    whiteText: {
+        color: '#fff'
+    }
+})
 
 const mapStateToProps = (decks, { route }) => {
     return {
@@ -60,5 +74,3 @@ const mapStateToProps = (decks, { route }) => {
 }
 
 export default connect(mapStateToProps)(Quiz)
-
-const styles = StyleSheet.create({})

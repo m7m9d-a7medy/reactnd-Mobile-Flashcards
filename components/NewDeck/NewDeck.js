@@ -13,6 +13,7 @@ const NewDeck = ({ dispatch, navigation }) => {
     const submitHandler = () => {
         if (title) {
             dispatch(saveDeckTitleAction(title))
+            setTitle('')
             navigation.navigate('Deck List')
         }
     }

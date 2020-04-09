@@ -21,7 +21,10 @@ const AddCard = ({ route, navigation, dispatch }) => {
                 answer: answerText,
                 correct
             }))
-
+        
+        setValid(false)
+        setAnswerText('')
+        setQuestionText('')
         navigation.navigate('Deck List')
     }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 
 const DeckItem = ({ title, cardCount }) => {

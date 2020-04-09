@@ -13,10 +13,8 @@ const Stack = createStackNavigator()
 
 export class MainApp extends Component {
   componentDidMount() {
-    saveMockData()
-      .then(() => {
-        this.props.dispatch(saveDecks())
-      })
+
+    this.props.dispatch(saveDecks())
 
     setLocalNotification()
   }
@@ -24,7 +22,7 @@ export class MainApp extends Component {
   render() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home} options={{header: () => null}}/>
+        <Stack.Screen name='Home' component={Home} options={{ header: () => null }} />
         <Stack.Screen name='DeckView' component={DeckView} />
         <Stack.Screen name='AddCard' component={AddCard} />
         <Stack.Screen name='QuizView' component={Quiz} />

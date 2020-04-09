@@ -11,11 +11,8 @@ const NewDeck = ({ dispatch, navigation }) => {
 
     const submitHandler = () => {
         if (title) {
-            saveDeckTitle(title)
-                .then(deck => {
-                    dispatch(saveDeckTitleAction(deck))
-                    navigation.navigate('Deck List')
-                })
+            dispatch(saveDeckTitleAction(title))
+            navigation.navigate('Deck List')
         }
     }
 

@@ -14,11 +14,15 @@ const AddCard = ({ route, navigation, dispatch }) => {
     const [valid, setValid] = useState(false)
 
     const submitHandler = () => {
-        addCardToDeck(deckTitle, { question: questionText, answer: answerText, correct })
-            .then(entry => {
-                dispatch(addCardToDeckAction(deckTitle, entry))
-                navigation.navigate('Deck List')
-            })
+        dispatch(addCardToDeckAction(
+            deckTitle,
+            {
+                question: questionText,
+                answer: answerText,
+                correct
+            }))
+
+        navigation.navigate('Deck List')
     }
 
     const changeTextHandler = (field, text) => {
@@ -36,7 +40,7 @@ const AddCard = ({ route, navigation, dispatch }) => {
             <TextInput placeholder='Question' value={questionText} onChangeText={e => changeTextHandler('question', e)} />
             <TextInput placeholder='Answer' value={answerText} onChangeText={e => changeTextHandler('answer', e)} />
             <TextButton onPress={() => setCorrect(correct => !correct)}>
-                { correct ? 'Correct' : 'Incorrect'}
+                {correct ? 'Correct' : 'Incorrect'}
             </TextButton>
             <TextButton onPress={submitHandler} disabled={!valid}>
                 Submit

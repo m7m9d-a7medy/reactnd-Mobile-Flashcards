@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Home from './Home/Home'
 import DeckView from './DeckView/DeckView'
 import AddCard from './AddCard/AddCard'
+import Quiz from './Quiz/Quiz'
 
 const Stack = createStackNavigator()
 
@@ -23,6 +24,7 @@ export class MainApp extends Component {
         <Stack.Screen name='Home' component={Home} options={{header: () => null}}/>
         <Stack.Screen name='DeckView' component={DeckView} />
         <Stack.Screen name='AddCard' component={AddCard} />
+        <Stack.Screen name='QuizView' component={Quiz} />
       </Stack.Navigator>
     )
   }

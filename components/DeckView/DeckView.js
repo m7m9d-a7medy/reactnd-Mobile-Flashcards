@@ -13,7 +13,7 @@ const DeckView = ({ route, navigation }) => {
             <TextButton onPress={() => navigation.navigate('AddCard', { deckTitle: title })}>
                 Add card
             </TextButton>
-            <TextButton>
+            <TextButton onPress={() => navigation.navigate('QuizView', { deckTitle: title })}>
                 Start Quiz
             </TextButton>
         </SafeAreaView>

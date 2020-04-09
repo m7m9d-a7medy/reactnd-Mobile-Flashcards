@@ -5,12 +5,23 @@ export const SAVE_DECKS = 'SAVE_DECKS'
 export const SAVE_DECK_TITLE = 'SAVE_DECK_TITLE'
 export const ADD_CARD_TO_DECK = 'ADD_CARD_TO_DECK'
 
+export const saveDecks = decks => ({
+    type: SAVE_DECKS,
+    decks,
+})
+
+/* 
 export const saveDecks = (decks = _DATA) => dispatch => {
     Storage.saveMockData(decks)
         .then(() => dispatch({
             type: SAVE_DECKS,
             decks,
         }))
+}
+ */
+export const getDecksAction = () => dispatch => {
+    Storage.getDecks()
+        .then(decks => dispatch(saveDecks(decks)))
 }
 
 export const saveDeckTitleAction = title => dispatch => {

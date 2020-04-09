@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveDecks } from '../store/actions'
-import { saveMockData } from '../utils/asyncStorage'
+import { getDecksAction } from '../store/actions'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './Home/Home'
 import DeckView from './DeckView/DeckView'
@@ -15,7 +14,7 @@ const Stack = createStackNavigator()
 export class MainApp extends Component {
   componentDidMount() {
 
-    this.props.dispatch(saveDecks())
+    this.props.dispatch(getDecksAction())
 
     setLocalNotification()
   }

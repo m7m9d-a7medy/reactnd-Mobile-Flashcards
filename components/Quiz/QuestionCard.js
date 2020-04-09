@@ -31,13 +31,16 @@ const QuestionCard = ({ question, answer }) => {
         <View style={styles.card}>
             <Animated.View style={[styles.cardSide, styles.frontSide, { transform: [{ rotateY: fsRotVal }] }]}>
                 <Text>{question}</Text>
+                <Text onPress={pressed}>
+                    Answer
+                </Text>
             </Animated.View>
             <Animated.View style={[styles.cardSide, styles.backSide, { transform: [{ rotateY: bsRotVal }] }]}>
                 <Text>{answer}</Text>
+                <Text onPress={pressed}>
+                    Question
+                </Text>
             </Animated.View>
-            <TextButton onPress={pressed}>
-                {isFront ? 'Answer' : 'Question'}
-            </TextButton>
         </View>
     )
 }
@@ -46,16 +49,17 @@ const styles = StyleSheet.create({
     card: {
         position: 'relative',
         flex: 1,
+        width: '90%',
         justifyContent: 'center',
         alignItems: 'center',
+        margin: 30
     },
     cardSide: {
         position: 'absolute',
         top: 0,
         left: 0,
+        height: '100%',
         width: '100%',
-        height: '50%',
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 2,

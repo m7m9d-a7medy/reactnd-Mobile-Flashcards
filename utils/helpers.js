@@ -8,8 +8,9 @@ export const newDeck = title => ({
     questions: []
 })
 
-export const newEntry = (question, answer) => ({
+export const newEntry = (question, answer, correct) => ({
     id: generateId(),
     question,
     answer,
+    correct,
 })

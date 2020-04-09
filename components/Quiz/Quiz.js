@@ -19,7 +19,7 @@ const Quiz = ({ questions }) => {
     }
 
     const answerHandler = answer => {
-        if (answer === true) {
+        if (answer === questions[index].correct) {
             setScore(score => score + 1)
         }
         setIndex(index => index + 1)

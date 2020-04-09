@@ -33,8 +33,8 @@ export const saveDeckTitle = title => {
 }
 
 export const addCardToDeck = (deckTitle, card) => {
-    const { question, answer } = card
-    const entry = newEntry(question, answer)
+    const { question, answer, correct } = card
+    const entry = newEntry(question, answer, correct)
 
     return getDecks()
         .then(result => {

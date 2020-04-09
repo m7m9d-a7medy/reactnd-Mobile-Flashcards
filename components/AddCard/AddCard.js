@@ -10,10 +10,11 @@ const AddCard = ({ route, navigation, dispatch }) => {
     const { deckTitle } = route.params
     const [questionText, setQuestionText] = useState('')
     const [answerText, setAnswerText] = useState('')
+    const [correct, setCorrect] = useState(true)
     const [valid, setValid] = useState(false)
 
     const submitHandler = () => {
-        addCardToDeck(deckTitle, { question: questionText, answer: answerText })
+        addCardToDeck(deckTitle, { question: questionText, answer: answerText, correct })
             .then(entry => {
                 dispatch(addCardToDeckAction(deckTitle, entry))
                 navigation.navigate('Deck List')
@@ -34,6 +35,9 @@ const AddCard = ({ route, navigation, dispatch }) => {
         <SafeAreaView>
             <TextInput placeholder='Question' value={questionText} onChangeText={e => changeTextHandler('question', e)} />
             <TextInput placeholder='Answer' value={answerText} onChangeText={e => changeTextHandler('answer', e)} />
+            <TextButton onPress={() => setCorrect(correct => !correct)}>
+                { correct ? 'Correct' : 'Incorrect'}
+            </TextButton>
             <TextButton onPress={submitHandler} disabled={!valid}>
                 Submit
             </TextButton>

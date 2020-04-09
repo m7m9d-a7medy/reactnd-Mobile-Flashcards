@@ -23,10 +23,10 @@ export class MainApp extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home} options={{ header: () => null }} />
-        <Stack.Screen name='DeckView' component={DeckView} />
-        <Stack.Screen name='AddCard' component={AddCard} />
-        <Stack.Screen name='QuizView' component={Quiz} />
-        <Stack.Screen name='QuizSummary' component={QuizSummary} />
+        <Stack.Screen name='DeckView' component={DeckView} options={{ title: 'Deck' }} />
+        <Stack.Screen name='AddCard' component={AddCard} options={{ title: 'Add Card' }} />
+        <Stack.Screen name='QuizView' component={Quiz} options={{ title: 'Quiz' }} />
+        <Stack.Screen name='QuizSummary' component={QuizSummary}  options={{ title: 'Summary' }} />
       </Stack.Navigator>
     )
   }

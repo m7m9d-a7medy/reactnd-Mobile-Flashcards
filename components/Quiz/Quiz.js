@@ -5,6 +5,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import QuestionCard from './QuestionCard'
 import TextButton from '../UI/TextButton'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { clearLocalNotification, setLocalNotification } from '../../utils/notifications'
 
 const Quiz = ({ questions }) => {
     const [score, setScore] = useState(0)
@@ -26,6 +27,9 @@ const Quiz = ({ questions }) => {
     }
 
     if (questions.length === index) {
+        clearLocalNotification()
+            .then(setLocalNotification)
+
         return (
             <SafeAreaView>
                 <Text>Score: {score}/{questions.length}</Text>

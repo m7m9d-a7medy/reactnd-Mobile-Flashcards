@@ -7,6 +7,7 @@ import Home from './Home/Home'
 import DeckView from './DeckView/DeckView'
 import AddCard from './AddCard/AddCard'
 import Quiz from './Quiz/Quiz'
+import { setLocalNotification } from '../utils/notifications'
 
 const Stack = createStackNavigator()
 
@@ -16,6 +17,8 @@ export class MainApp extends Component {
       .then(() => {
         this.props.dispatch(saveDecks())
       })
+
+    setLocalNotification()
   }
 
   render() {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import TextButton from '../UI/TextButton'
-import { addCardToDeck } from '../../utils/asyncStorage'
 import { connect } from 'react-redux'
 import { addCardToDeckAction } from '../../store/actions'
+import StyledTextInput from '../UI/StyledTextInput'
 
 const AddCard = ({ route, navigation, dispatch }) => {
     const { deckTitle } = route.params
@@ -36,15 +36,19 @@ const AddCard = ({ route, navigation, dispatch }) => {
     }
 
     return (
-        <SafeAreaView>
-            <TextInput placeholder='Question' value={questionText} onChangeText={e => changeTextHandler('question', e)} />
-            <TextInput placeholder='Answer' value={answerText} onChangeText={e => changeTextHandler('answer', e)} />
-            <TextButton onPress={() => setCorrect(correct => !correct)}>
-                {correct ? 'Correct' : 'Incorrect'}
-            </TextButton>
-            <TextButton onPress={submitHandler} disabled={!valid}>
-                Submit
-            </TextButton>
+        <SafeAreaView style={{flex: 1}}>
+            <View style={{ flex: 2 }}>
+                <StyledTextInput placeholder='Question' value={questionText} onChangeText={e => changeTextHandler('question', e)} />
+                <StyledTextInput placeholder='Answer' value={answerText} onChangeText={e => changeTextHandler('answer', e)} />
+            </View>
+            <View style={{ flex: 1 }}>
+                <TextButton onPress={() => setCorrect(correct => !correct)}>
+                    {correct ? 'Correct' : 'Incorrect'}
+                </TextButton>
+                <TextButton onPress={submitHandler} disabled={!valid}>
+                    Submit
+                </TextButton>
+            </View>
         </SafeAreaView>
     )
 }

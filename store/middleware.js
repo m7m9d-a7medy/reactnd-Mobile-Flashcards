@@ -12,5 +12,4 @@ const logger = store => next => action => {
 
 export default applyMiddleware(
     thunk,
-    logger
 )

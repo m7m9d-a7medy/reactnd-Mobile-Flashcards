@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import DeckItem from './DeckItem'
 import { connect } from 'react-redux'
@@ -8,6 +8,7 @@ const DeckList = ({ deckItems, navigation, route }) => {
     // console.log(deckItems)
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar />
             <FlatList
                 data={deckItems}
                 keyExtractor={item => item.id}
